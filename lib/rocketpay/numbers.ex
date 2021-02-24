@@ -28,7 +28,7 @@ defmodule Rocketpay.Numbers do
       result
       |> String.split(",")
       |> Stream.map(fn number -> String.to_integer(number) end) #stream is a lazy operator; it optimizes the performance to reduce iterations/method calls
-      |> IO.inspect() # log on terminal by method call
+      # |> IO.inspect() # log on terminal by method call
       |> Enum.sum()
 
     {:ok, %{result: result}}
