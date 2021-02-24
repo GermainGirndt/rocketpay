@@ -27,12 +27,13 @@ defmodule Rocketpay.Numbers do
     result =
       result
       |> String.split(",")
-      |> Enum.map(fn number -> String.to_integer(number) end)
+      |> Stream.map(fn number -> String.to_integer(number) end) #stream is a lazy operator; it optimizes the performance to reduce iterations/method calls
+      |> IO.inspect() # log on terminal by method call
       |> Enum.sum()
 
     {:ok, %{result: result}}
   end
 
-  defp handle_file({:error, _reason}), do: {:error, "Invalid file!"}
+  defp handle_file({:error, _reason}), do: {:error, %{message: "Invalid file!"}}
 
 end
