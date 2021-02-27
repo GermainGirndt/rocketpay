@@ -4,6 +4,7 @@ defmodule Rocketpay.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Rocketpay.Account
   alias Ecto.Changeset
 
   #binary_id = uuid
@@ -18,6 +19,7 @@ defmodule Rocketpay.User do
     field :password, :string, virtual: true #virtual = not present in DB
     field :password_hash, :string
     field :nickname, :string
+    has_one :account, Account
 
     timestamps()
   end

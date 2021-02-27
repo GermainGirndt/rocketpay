@@ -10,6 +10,7 @@ defmodule RocketpayWeb.UsersController do
   def create(conn, params) do
 
     with {:ok, %User{} = user} <- Rocketpay.create_user(params) do
+      IO.inspect(user)
       conn
       |> put_status(:created)
       |> render("create.json", user: user)

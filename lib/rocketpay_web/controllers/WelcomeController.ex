@@ -9,8 +9,7 @@ defmodule RocketpayWeb.WelcomeController do
   # Receive connections and parameter
   # (_parameter = we will not use this one)
   def index(conn, %{"filename" => filename}) do
-    #text(conn, "Welcome to the Rocketpay API")
-
+  #text(conn, "Welcome to the Rocketpay API")
     filename
       |> Numbers.sum_from_file()
       |> handle_response(conn)
